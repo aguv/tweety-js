@@ -79,5 +79,16 @@
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-  </body>
+    </body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect();
+        socket.on('connect', () => {
+            console.log("Connected to express server via WebSockets");
+        })
+        socket.on('newTweet', tweet => {
+            console.log(tweet);
+        })
+    </script>
 </html>

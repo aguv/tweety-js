@@ -58,3 +58,7 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+.row {
+    margin-top: 50px;
+}

@@ -10,9 +10,11 @@
   "author": "agu vazquez",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "morgan": "^1.10.0",
-    "nunjucks": "^3.2.2"
+    "nunjucks": "^3.2.2",
+    "socket.io": "^3.1.0"
   }
 }

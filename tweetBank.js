@@ -32,8 +32,6 @@ const getFakeTweet = function() {
 };
 
 for (let i = 0; i < 10; i++) {
-    module.exports.add( getFakeName(), getFakeTweet() );
+    module.exports.add(getFakeName(), getFakeTweet());
+    data[i].id = i;
 }
-
-console.log(data);
-
