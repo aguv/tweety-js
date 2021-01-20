@@ -24,8 +24,6 @@ app.use(morgan('tiny'))
 app.use('/', router);
 
 
-
-
 const PORT = 3000;
 
 const server = app.listen(PORT, function(){
@@ -34,8 +32,3 @@ const server = app.listen(PORT, function(){
 
 const io = socketIO(server);
 
-io.on('connection', client => {
-    client.on('newTweet', data => {
-        console.log(data);
-    })
-})
