@@ -88,7 +88,13 @@
             console.log("Connected to express server via WebSockets");
         })
         socket.on('newTweet', tweet => {
-            console.log(tweet);
+            console.log(tweet); 
+            const tweets = document.getElementById("tweets");
+            const myItemlist = document.createElement('li');
+            myItemlist.innerHTML = '<a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{tweet.content}}';
+            tweets.appendChild(myItemlist);
+            console.log(window); 
+            alert("Sending tweet");           
         })
     </script>
 </html>

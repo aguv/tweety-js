@@ -3,7 +3,6 @@ const morgan = require('morgan'); //middleware application logger
 const nunjucks = require( 'nunjucks' );
 const bodyParser = require('body-parser');
 const router = require('./routes');
-const http = require('http');
 const socketIO = require('socket.io');
 
 const app = express(); // crea una instancia de una aplicación de express
@@ -11,6 +10,7 @@ const app = express(); // crea una instancia de una aplicación de express
 app.use(express.static('./public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(morgan('tiny'))
 
 ///
 
@@ -19,11 +19,7 @@ app.set('view engine', 'html'); // hace que res.render funcione con archivos htm
 app.engine('html', nunjucks.render); // cuando le den archivos html a res.render, va a usar nunjucks
 nunjucks.configure('views'); // apunta a nunjucks al directorio correcto para los templates
 
-app.use(morgan('tiny'))
-
-app.use('/', router);
-
-
+// server and socket 
 const PORT = 3000;
 
 const server = app.listen(PORT, function(){
@@ -32,3 +28,4 @@ const server = app.listen(PORT, function(){
 
 const io = socketIO(server);
 
+app.use('/', router(io));

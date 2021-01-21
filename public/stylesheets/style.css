@@ -62,3 +62,9 @@ code {
 .row {
     margin-top: 50px;
 }
+
+#img {
+  width: 140px;
+  height: 170px;
+  border-radius: 10px;
+}
